@@ -3,4 +3,4 @@
 
 # PHP 관련
 /vendor/
-/composer.lock
+/composer.lock.DS_Store
