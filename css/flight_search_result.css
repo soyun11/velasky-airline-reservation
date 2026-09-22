@@ -1,0 +1,143 @@
+/* 기본 세팅 */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 헤더 스타일 */
+header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  width: 100%;
+}
+
+/* 검색 박스 */
+.search-box {
+  border: 1px solid #ddd;
+  padding: 30px 50px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 8px;
+
+  display: block;
+}
+
+.search-box h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* 정렬 박스 */
+.sort-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 좌석 버튼 */
+.seat-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ddd;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.seat-buttons button:hover {
+  background-color: #bbb;
+}
+
+/* 제출 버튼 */
+.submit-button button {
+  padding: 12px 30px;
+  background-color: #005bac;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-button button:hover {
+  background-color: #004080;
+}
+
+/* 항공편 목록 컨테이너 */
+.flights-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center; /* 가로 가운데 정렬 */
+  margin-top: 20px;
+}
+
+/* 항공편 카드 */
+.flight {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  width: 300px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.flight:hover {
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+/*결제하기 버튼*/
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-wrapper button {
+  padding: 12px 28px;
+  font-size: 16px;
+  background-color: #005bac;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button-wrapper button:hover {
+  background-color: #004080;
+}
+.flight.selected {
+  border: 2px solid #005bac;
+  background-color: #e6f0ff;
+  box-shadow: 0 0 10px rgba(0, 91, 172, 0.5);
+}

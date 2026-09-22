@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"> <!-- 문서의 문자 인코딩을 UTF-8로 설정 (한글 깨짐 방지) -->
+  <title>로그인 및 회원가입</title> <!-- 브라우저 탭에 표시될 제목 -->
+
+  <!-- 로그인 페이지 전용 CSS 스타일 적용 -->
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+  <div class="container"> <!-- 전체 내용을 감싸는 컨테이너 -->
+
+    <!-- 페이지 상단 헤더 영역 -->
+    <header>
+      <!-- 로고 클릭 시 메인 페이지로 이동 -->
+      <a href="../php/main.php" class="logo">Vela Sky</a>
+
+      <!-- 현재 페이지 제목 표시 -->
+      <span class="page-title">로그인 및 회원가입</span>
+    </header>
+
+    <!-- 로그인 폼이 들어갈 메인 영역 -->
+    <main class="login-box">
+      <h2>로그인</h2>
+
+      <!-- 로그인 정보를 입력받는 폼 -->
+      <form action="../php/login.php" method="POST">
+        <!-- 사용자가 입력한 정보는 POST 방식으로 login.php로 전송 -->
+
+        <!-- 회원번호 입력 필드 -->
+        <div class="form-group">
+          <label for="member-id">회원번호</label>
+          <input type="text" id="member-id" name="memberId" placeholder="ex) c1" required>
+          <!-- 회원번호 입력은 필수 (required) -->
+        </div>
+
+        <!-- 비밀번호 입력 필드 -->
+        <div class="form-group">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" name="password" placeholder="ex) pw1234" required>
+          <!-- 비밀번호 입력은 필수 (required) -->
+        </div>
+
+        <!-- 로그인 버튼 -->
+        <button class="login-btn">로그인하기</button>
+
+        <!-- 회원가입 링크 -->
+        <div class="register-link">
+          <a href="../html/signup.html">회원가입하기</a>
+        </div>
+      </form>
+    </main>
+
+  </div> <!-- container 끝 -->
+</body>
+</html>

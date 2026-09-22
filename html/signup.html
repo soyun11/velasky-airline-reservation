@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"> <!-- 한글 인코딩 설정 -->
+  <title>로그인 및 회원가입</title>
+  <link rel="stylesheet" href="../css/signup.css"> <!-- 스타일시트 연결 -->
+</head>
+<body>
+  <div class="container"> <!-- 전체 레이아웃 컨테이너 -->
+    <header>
+      <a href="../php/main.php" class="logo">Vela Sky</a> <!-- 로고 클릭 시 메인으로 -->
+      <span class="page-title">로그인 및 회원가입</span>
+    </header>
+
+    <main class="login-box">
+      <h2>회원가입하기</h2>
+
+      <!-- 회원가입 폼 -->
+      <form action="/register" method="post"> <!-- 서버로 POST 전송 -->
+        <div class="form-group">
+          <label for="member-name">이름*</label>
+          <input type="text" id="member-name" name="memberName" placeholder="ex) 김지은" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">비밀번호*</label>
+          <input type="password" id="password" name="password" placeholder="ex) pw1234" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">이메일*</label>
+          <input type="email" id="email" name="email" placeholder="ex) jieunkim@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="passport-number">여권 번호*</label>
+          <input type="text" id="passport-number" name="passportNumber" placeholder="ex) M178K1974" required>
+        </div>
+
+        <button type="submit" class="login-btn">가입하기</button> <!-- 가입 버튼 -->
+
+        <div class="register-link">
+          <a href="login.html">로그인하기</a> <!-- 로그인 페이지 링크 -->
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
