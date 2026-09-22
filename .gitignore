@@ -1,6 +1,12 @@
-# 환경변수 파일 (비밀번호, API키 등 민감정보)
+# Environment variables
 .env
 
-# PHP 관련
-/vendor/
-/composer.lock.DS_Store
+# Dependencies
+vendor/
+php/vendor/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
