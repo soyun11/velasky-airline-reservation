@@ -1,23 +1,9 @@
 <?php
 session_start(); // 세션 시작: 로그인 정보 등 세션 변수 사용 가능하게 함
 
-// Oracle 데이터베이스 접속을 위한 TNS (Transparent Network Substrate) 문자열 구성
-$tns = "
-(DESCRIPTION=
-    (ADDRESS_LIST=
-        (ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))
-    )
-    (CONNECT_DATA=
-        (SERVICE_NAME=XE)
-    )
-)";
-$dsn = "oci:dbname=".$tns.";charset=utf8"; // PDO에서 사용할 DSN(Data Source Name) 문자열 생성
-$username = 'd202302554';  // Oracle 사용자명
-$password = '1234'; // Oracle 비밀번호
-
 try {
     // PDO를 사용하여 Oracle DB에 연결 시도
-    $conn = new PDO($dsn, $username, $password);
+    $conn = require_once __DIR__ . '/db.php';
 } catch (PDOException $e) {
    // 연결 실패 시 오류 메시지 출력 후 종료
     die("DB 연결 실패: " . $e->getMessage());

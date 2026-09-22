@@ -2,31 +2,10 @@
 // 세션 시작: 로그인한 사용자 정보 사용을 위해 반드시 필요
 session_start();
 
-// Oracle DB 연결 정보 설정
-$tns = "
-(DESCRIPTION=
-    (ADDRESS_LIST=
-        (ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))
-    )
-    (CONNECT_DATA=
-        (SERVICE_NAME=XE)
-    )
-)";
-$dsn = "oci:dbname=".$tns.";charset=utf8";  // DSN 문자열 생성, 문자셋 utf8 지정
-$username = 'd202302554';  // DB 접속 계정
-$password = '1234';        // DB 접속 비밀번호
-
 try {
-    // PDO 객체 생성: Oracle DB 연결 시도
-    $pdo = new PDO($dsn, $username, $password);
-
-    // 에러 발생 시 예외 던지도록 설정 (디버깅에 도움)
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    $pdo = require __DIR__ . '/db.php';
 } catch (PDOException $e) {
-    // DB 연결 실패 시 사용자에게 오류 메시지 출력 후 스크립트 종료
-    echo "❌ DB 연결 실패: " . $e->getMessage();
-    exit;
+    die("❌ DB 연결 실패: " . $e->getMessage());
 }
 
 // 세션에서 사용자 고유 번호(cno) 가져오기

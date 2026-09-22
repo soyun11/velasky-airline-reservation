@@ -2,26 +2,8 @@
 session_start(); 
 // 세션 시작: 로그인 상태 유지와 사용자 정보 저장을 위해 세션을 시작한다.
 
-// Oracle 접속 정보 설정
-$tns = "
-(DESCRIPTION=
-    (ADDRESS_LIST=
-        (ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))
-    )
-    (CONNECT_DATA=
-        (SERVICE_NAME=XE)
-    )
-)";
-// Oracle 데이터베이스 접속 문자열을 TNS 형식으로 작성한다.
-$dsn = "oci:dbname=".$tns.";charset=utf8"; // DSN(Data Source Name) 문자열에 TNS와 문자셋을 포함한다.
-$username = 'd202302554'; // DB 접속 사용자명
-$password = '1234';       // DB 접속 비밀번호
-
 try {
-    // PDO 객체 생성하여 Oracle DB에 연결 시도
-    $conn = new PDO($dsn, $username, $password);
-    // 예외 처리 모드로 설정: 오류 발생 시 예외 던짐
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn = require_once __DIR__ . '/db.php';
 
     // HTTP 요청 방식이 POST인지 검사하여 로그인 처리 수행
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -51,9 +33,7 @@ try {
                 // 비밀번호가 일치하면 세션 변수에 회원정보 저장
                 $_SESSION['cno'] = $memberId;
                 $_SESSION['name'] = $row['NAME'] ?? '';
-                $_SESSION['passwd'] = $dbPasswd;
                 $_SESSION['email'] = $row['EMAIL'] ?? '';
-                $_SESSION['passportNumber'] = $row['PASSPORTNUMBER'] ?? '';
 
                 // 로그인 성공 시 알림창 표시 후 마이페이지로 리다이렉트
                 echo "<script>

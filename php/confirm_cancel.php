@@ -1,27 +1,9 @@
 <?php
 session_start();
 
-// Oracle DB 연결 정보 설정 (TNS, 접속정보)
-$tns = "
-(DESCRIPTION=
-    (ADDRESS_LIST=
-        (ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))
-    )
-    (CONNECT_DATA=
-        (SERVICE_NAME=XE)
-    )
-)";
-$dsn = "oci:dbname=" . $tns . ";charset=utf8"; // DSN 문자열 생성
-$username = 'd202302554'; // DB 사용자명
-$password = '1234';       // DB 비밀번호
-
 try {
-    // PDO를 사용해 Oracle DB에 연결 시도
-    $pdo = new PDO($dsn, $username, $password);
-    // 예외 처리 모드 설정 (오류 발생 시 예외 던짐)
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = require __DIR__ . '/db.php';
 } catch (PDOException $e) {
-    // DB 연결 실패 시 종료 및 오류 메시지 출력
     die("❌ DB 연결 실패: " . $e->getMessage());
 }
 

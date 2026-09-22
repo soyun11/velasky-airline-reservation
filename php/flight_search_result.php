@@ -1,24 +1,9 @@
 <?php
 session_start(); // 세션 시작: 로그인 사용자 정보를 계속 유지하기 위해 세션 사용
 
-// Oracle 데이터베이스 연결 정보 설정
-$tns = "
-(DESCRIPTION=
-    (ADDRESS_LIST=
-        (ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))
-    )
-    (CONNECT_DATA=
-        (SERVICE_NAME=XE)
-    )
-)";
-$dsn = "oci:dbname=".$tns.";charset=utf8";
-$username = 'd202302554';
-$password = '1234';
-
 try {
     // DB 연결 시도
-    $conn = new PDO($dsn, $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // 예외 발생 시 catch로 전달
+    $conn = require_once __DIR__ . '/db.php';
 
     // GET 방식으로 전달받은 검색 조건값 추출 (삼항 연산자로 기본값 처리)
     $dep = $_GET['departure'] ?? '';

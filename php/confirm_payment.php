@@ -24,20 +24,8 @@ if (!isset($_SESSION['cno']) || !isset($_SESSION['email'])) {
     exit;
 }
 
-// Oracle DB 접속용 TNS 문자열 구성
-$tns = "
-(DESCRIPTION=
-    (ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))
-    (CONNECT_DATA=(SERVICE_NAME=XE))
-)";
-$dsn = "oci:dbname=" . $tns . ";charset=utf8";
-$username = 'd202302554'; // DB 접속 아이디
-$password = '1234';       // DB 접속 비밀번호
-
 try {
-    // PDO 객체 생성 및 예외 모드 설정 (에러 발생 시 예외 던짐)
-    $conn = new PDO($dsn, $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn = require_once __DIR__ . '/db.php';
 
     // POST 데이터와 세션값 받아오기 (입력값 검증 준비)
     $flightNo = $_POST['flightNo'] ?? '';

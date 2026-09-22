@@ -4,9 +4,7 @@ session_start(); // 세션 시작: 로그인된 사용자 정보를 유지하기
 // 세션에 저장된 로그인 사용자 정보 가져오기
 $cno = $_SESSION['cno'];              // 회원번호
 $name = $_SESSION['name'];            // 이름
-$passwd = $_SESSION['passwd'];        // 비밀번호
 $email = $_SESSION['email'];          // 이메일
-$passport = $_SESSION['passportNumber']; // 여권 번호
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +30,7 @@ $passport = $_SESSION['passportNumber']; // 여권 번호
       <!-- 세션에서 가져온 회원 정보를 출력 -->
       <p><strong>회원번호</strong> <?= htmlspecialchars($cno) ?></p>
       <p><strong>이름</strong> <?= htmlspecialchars($name) ?></p>
-      <p><strong>비밀번호</strong> <?= htmlspecialchars($passwd) ?></p>
       <p><strong>이메일</strong> <?= htmlspecialchars($email) ?></p>
-      <p><strong>여권번호</strong> <?= htmlspecialchars($passport) ?></p>
       <!-- htmlspecialchars: XSS 공격 방지를 위해 특수문자 이스케이프 처리 -->
     </main>
 
